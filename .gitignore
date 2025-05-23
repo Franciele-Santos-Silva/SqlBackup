@@ -1,0 +1,14 @@
+# Arquivos sensíveis
+.secrets/
+*.key
+*.enc
+credentials.json
+.env
+
+# Backups criptografados
+mysql/arquivos/*.enc
+
+# Python
+__pycache__/
+*.pyc
+venv/
