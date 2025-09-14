@@ -1,7 +1,5 @@
 # SqlBackup
 
-## Descrição
-
 SqlBackup é um projeto desenvolvido para gerenciar backups de bancos de dados SQL de forma simples e eficiente. Este projeto permite realizar operações básicas de backup e restauração, ajudando a proteger seus dados.
 
 ## Funcionalidades
@@ -24,15 +22,20 @@ SqlBackup é um projeto desenvolvido para gerenciar backups de bancos de dados S
 
 2. Entre na pasta do projeto:
 
- ```bash
-cd SqlBackup
+   ```bash
+   cd SqlBackup
 
-3. Ative o ambiente virtual (Windows):
+3. Instalar o ambiente virtual (Windows):
 
- ```bash
-.\venv\Scripts\activate
+  ```bash
+  python -m venv venv
 
-4. Instale as dependências:
+4. Ative o ambiente virtual (Windows):
 
- ```bash
-pip install -r requirements.txt
+  ```bash
+  .\venv\Scripts\activate
+
+5. Instale as dependências:
+
+  ```bash
+  pip install -r requirements.txt
