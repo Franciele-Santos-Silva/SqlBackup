@@ -27,15 +27,15 @@ SqlBackup é um projeto desenvolvido para gerenciar backups de bancos de dados S
 
 3. Instalar o ambiente virtual (Windows):
 
-  ```bash
-  python -m venv venv
+   ```bash
+   python -m venv venv
 
 4. Ative o ambiente virtual (Windows):
 
-  ```bash
-  .\venv\Scripts\activate
+   ```bash
+   .\venv\Scripts\activate
 
 5. Instale as dependências:
 
-  ```bash
-  pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
