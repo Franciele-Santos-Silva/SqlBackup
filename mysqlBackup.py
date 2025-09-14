@@ -5,21 +5,25 @@ import logging
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
+from dotenv import load_dotenv
 
 # =============================================
-# CONFIGURAÇÕES PRINCIPAIs
+# CONFIGURAÇÕES
 # =============================================
+
+# Carregar variáveis de ambiente do .env
+load_dotenv()
 
 ## MySQL
-USUARIO = "root"
-SENHA = "!3675pfg45j"
-BANCO = "Laboratorioreser"
-HOST = "localhost"
+USUARIO = os.getenv("MYSQL_USER")
+SENHA = os.getenv("MYSQL_PASSWORD")
+BANCO = os.getenv("MYSQL_DB")
+HOST = os.getenv("MYSQL_HOST")
 
 ## Google Drive
 SCOPES = ['https://www.googleapis.com/auth/drive']
-SERVICE_ACCOUNT_FILE = r"C:\Users\franc\OneDrive\Documentos\AULAS NAYRON\ATIVIDADES3P\backup\credentials.json"
-PARENT_FOLDER_ID = "1rnE06ewel0saISxQ-zzYM0Dab4snh3z5"
+SERVICE_ACCOUNT_FILE = os.getenv("GOOGLE_SERVICE_ACCOUNT")
+PARENT_FOLDER_ID = os.getenv("GOOGLE_PARENT_FOLDER")
 
 ## Local
 DIR_BACKUP = r"C:\backups_mysql\arquivos"
@@ -36,8 +40,11 @@ def setup():
     
     data_hora = datetime.now().strftime("%Y-%m-%d_%H-%M")
     log_file = os.path.join(DIR_LOG, f"backup_{data_hora}.log")
-    logging.basicConfig(filename=log_file, level=logging.INFO, 
-    format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.basicConfig(
+        filename=log_file,
+        level=logging.INFO, 
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
 
 def gerar_backup():
     try:
@@ -67,7 +74,8 @@ def enviar_para_drive(arquivo):
     """Envia arquivo SQL para o Google Drive"""
     try:
         creds = service_account.Credentials.from_service_account_file(
-            SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+            SERVICE_ACCOUNT_FILE, scopes=SCOPES
+        )
         service = build('drive', 'v3', credentials=creds)
 
         file_metadata = {
@@ -83,7 +91,6 @@ def enviar_para_drive(arquivo):
             fields='id,webViewLink,webContentLink'
         ).execute()
 
-        # vai gerar o link para visualização direta
         link_visualizacao = f"https://drive.google.com/file/d/{file['id']}/view"
         print(f"Upload completo! Visualizar: {link_visualizacao}")
         return True

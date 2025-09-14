@@ -1,14 +1,17 @@
-# Arquivos sensíveis
-.secrets/
-*.key
-*.enc
-credentials.json
-.env
+# Ambiente virtual
+venv/
 
-# Backups criptografados
-mysql/arquivos/*.enc
-
-# Python
+# Arquivos temporários
 __pycache__/
 *.pyc
-venv/
+
+# Credenciais e configs locais
+.env
+credentials.json
+*.key
+
+# Logs e backups
+*.log
+*.sql
+*.gz
+*.enc
