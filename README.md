@@ -25,12 +25,12 @@ SqlBackup é um projeto desenvolvido para gerenciar backups de bancos de dados S
    ```bash
    cd SqlBackup
 
-3. Instalar o ambiente virtual (Windows):
+3. Instalar o ambiente virtual:
 
    ```bash
-   python -m venv venv
+    python -m venv venv
 
-4. Ative o ambiente virtual (Windows):
+4. Ative o ambiente virtual:
 
    ```bash
    .\venv\Scripts\activate
@@ -39,3 +39,10 @@ SqlBackup é um projeto desenvolvido para gerenciar backups de bancos de dados S
 
    ```bash
    pip install -r requirements.txt
+
+6. Execute o script.
+
+   ```bash
+   python mysqlBackup.py
+
+
